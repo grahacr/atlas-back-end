@@ -4,9 +4,9 @@
 """
 
 
+import csv
 import requests
 import sys
-import csv
 
 
 def get_employee_tasks(employee_id):
