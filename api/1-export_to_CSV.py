@@ -38,7 +38,7 @@ def export_to_csv(tasks, filename):
         fieldnames = [
             'USER_ID',
             'USERNAME',
-            'TASKS_COMPLETED_STATUS',
+            'TASK_COMPLETED_STATUS',
             'TASK_TITLE']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
@@ -47,5 +47,6 @@ def export_to_csv(tasks, filename):
 
 
 if __name__ == "__main__":
-    get_employee_tasks(int(sys.argv[1]))
-    export_to_csv(filename="USER_ID.csv")
+    employee_tasks = get_employee_tasks(int(sys.argv[1]))
+    filename = "USER_ID.csv"
+    export_to_csv(tasks, filename)
