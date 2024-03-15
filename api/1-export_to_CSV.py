@@ -49,4 +49,4 @@ def export_to_csv(tasks, filename):
 if __name__ == "__main__":
     employee_tasks = get_employee_tasks(int(sys.argv[1]))
     filename = "USER_ID.csv"
-    export_to_csv(tasks, filename)
+    export_to_csv(employee_tasks, filename)
