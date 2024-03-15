@@ -5,6 +5,7 @@
 import requests
 import sys
 
+
 def get_employee_todo(employee_id):
     """ function returns employee to do list information """
     base_url = "https://jsonplaceholder.typicode.com"
@@ -23,7 +24,8 @@ def get_employee_todo(employee_id):
         if todo["completed"] is True:
             complete_todos.append(todo["title"])
 
-    print("Employee {} is done with tasks{}/{}:".format(specific_employee, len(complete_todos), total_todos))
+    print("Employee {} is done with tasks{}/{}:".format(
+        specific_employee, len(complete_todos), total_todos))
     for task_title in complete_todos:
         print("\t{} {}".format(task_title, '\t'))
 
