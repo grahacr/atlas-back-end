@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""
+""" this module utilizes an API
+ to return information on employees tasks
 """
 
 
@@ -29,7 +30,9 @@ def get_employee_tasks(employee_id):
         tasks.append(task)
     return tasks
 
+
 def export_to_csv(tasks, filename):
+    """function for exporting employee task info to csv file"""
     with open(filename, 'w', newline='') as csvfile:
         fieldnames = ['USER_ID', 'USERNAME', 'TASKS_COMPLETED_STATUS', 'TASK_TITLE']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
