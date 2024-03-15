@@ -24,7 +24,8 @@ def get_employee_tasks(employee_id):
         task = {
             "USER_ID": employee_id,
             "USERNAME": specific_employee,
-            "TASK_COMPLETED_STATUS": "Completed" if todo["completed"] else "Incomplete",
+            "TASK_COMPLETED_STATUS": "Completed" if todo["completed"]
+            else "Incomplete",
             "TASK_TITLE": todo["title"]
         }
         tasks.append(task)
@@ -34,11 +35,16 @@ def get_employee_tasks(employee_id):
 def export_to_csv(tasks, filename):
     """function for exporting employee task info to csv file"""
     with open(filename, 'w', newline='') as csvfile:
-        fieldnames = ['USER_ID', 'USERNAME', 'TASKS_COMPLETED_STATUS', 'TASK_TITLE']
+        fieldnames = [
+            'USER_ID',
+            'USERNAME',
+            'TASKS_COMPLETED_STATUS',
+            'TASK_TITLE']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
         for task in tasks:
             writer.writerow(task)
+
 
 if __name__ == "__main__":
     get_employee_tasks(int(sys.argv[1]))
