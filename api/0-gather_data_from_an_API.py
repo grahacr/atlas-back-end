@@ -23,7 +23,7 @@ def get_employee_todo(employee_id):
         if todo["completed"] is True:
             complete_todos.append(todo["title"])
 
-    print("Employee {} is done with tasks {}/{}:".format(
+    print("Employee {} is done with tasks({}/{}):".format(
         specific_employee, len(complete_todos), total_todos))
     for task_title in complete_todos:
         print("\t {}".format(task_title))
