@@ -15,11 +15,10 @@ def get_employee_todo(employee_id):
     employee_data = requests.get(employee_url).json()
     specific_employee = employee_data['name']
     todo_list = requests.get(todo_url, params={"userId": employee_id}).json()
-    todo_json = todo_list.json()
 
     complete_todos = []
     total_todos = 0
-    for todo in todo_json:
+    for todo in todo_list:
         total_todos += 1
         if todo["completed"] is True:
             complete_todos.append(todo["title"])
