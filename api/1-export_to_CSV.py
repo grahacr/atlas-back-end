@@ -41,11 +41,12 @@ def export_to_csv(tasks, filename):
             'USERNAME',
             'TASK_COMPLETED_STATUS',
             'TASK_TITLE']
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-        writer.writeheader()
+        writer = csv.writer(csvfile)
+        writer.writerow(fieldnames)
         for task in tasks:
-            writer.writerow(task)
-
+            row = [task['USER_ID'], task['USERNAME'],
+                   task['TASK_COMPLETED_STATUS'], task['TASK_TITLE']]
+            writer.writerow(row)
 
 if __name__ == "__main__":
     user_id = int(sys.argv[1])
