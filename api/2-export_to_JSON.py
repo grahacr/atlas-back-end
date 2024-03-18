@@ -27,14 +27,13 @@ def get_employee_tasks(employee_id):
             } for todo in todo_list
         ]
     }
-    print(tasks)
     return tasks
 
 
 def export_to_json(tasks, filename):
     """function for exporting employee task info to csv file"""
-    with open(filename, 'w', newline='') as jsonfile:
-        json.dump(tasks, jsonfile, indent=4)
+    with open(filename, 'w') as jsonfile:
+        json.dump(tasks, jsonfile)
 
 
 if __name__ == "__main__":
