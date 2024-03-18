@@ -48,6 +48,7 @@ def export_to_csv(tasks, filename):
                    task['TASK_COMPLETED_STATUS'], task['TASK_TITLE']]
             writer.writerow(row)
 
+
 if __name__ == "__main__":
     user_id = int(sys.argv[1])
     employee_tasks = get_employee_tasks(user_id)
