@@ -51,6 +51,7 @@ def export_to_csv(tasks, filename):
                     'TASK_TITLE': task['task']
                     })
 
+
 if __name__ == "__main__":
     user_id = int(sys.argv[1])
     employee_tasks = get_employee_tasks(user_id)
