@@ -3,8 +3,7 @@
  to return information on employees tasks
 """
 
-
-import csv
+import json
 import requests
 import sys
 
@@ -32,27 +31,13 @@ def get_employee_tasks(employee_id):
     return tasks
 
 
-def export_to_csv(tasks, filename):
+def export_to_json(tasks, filename):
     """function for exporting employee task info to csv file"""
-    with open(filename, 'w', newline='') as csvfile:
-        fieldnames = [
-            'USER_ID',
-            'USERNAME',
-            'TASK_COMPLETED_STATUS',
-            'TASK_TITLE']
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-        writer.writeheader()
-        for user_id, user_tasks in tasks.items():
-            for task in user_tasks:
-                writer.writerow({
-                    'USER_ID': user_id,
-                    'USERNAME': task['username'],
-                    'TASK_COMPLETED_STATUS': task['completed'],
-                    'TASK_TITLE': task['task']
-                    })
+    with open(filename, 'w', newline='') as jsonfile:
+        json.dump(tasks, jsonfile, indent=4)
 
 if __name__ == "__main__":
     user_id = int(sys.argv[1])
     employee_tasks = get_employee_tasks(user_id)
-    filename = todo_all_employees.json
-    export_to_csv(employee_tasks, filename)
+    filename = f"{user_id}.json"
+    export_to_json(employee_tasks, filename)
