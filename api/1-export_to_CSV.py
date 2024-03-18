@@ -24,8 +24,8 @@ def get_employee_tasks(employee_id):
         task = {
              "USER_ID": employee_id,
              "USERNAME": specific_employee,
-             "TASK_COMPLETED_STATUS": "Completed" if todo["completed"]
-             else "Incomplete",
+             "TASK_COMPLETED_STATUS": "True" if todo["completed"]
+             else "False",
              "TASK_TITLE": todo["title"]
         }
         tasks.append(task)
