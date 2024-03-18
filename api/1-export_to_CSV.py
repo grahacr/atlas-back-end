@@ -29,8 +29,8 @@ def get_employee_tasks(employee_id):
              "TASK_TITLE": todo["title"]
         }
         tasks.append(task)
-        print(tasks)
-        return tasks
+    print(tasks)
+    return tasks
 
 
 def export_to_csv(tasks, filename):
