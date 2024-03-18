@@ -36,7 +36,7 @@ def get_employee_tasks(employee_id):
 def export_to_csv(tasks, filename):
     """function for exporting employee task info to csv file"""
     with open(filename, 'w', newline='') as csvfile:
-        writer = csv.writer(csvfile)
+        writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
         for task in tasks:
             row = [task['USER_ID'], task['USERNAME'],
                    task['TASK_COMPLETED_STATUS'], task['TASK_TITLE']]
