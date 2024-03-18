@@ -15,7 +15,7 @@ def get_employee_tasks(employee_id):
     todo_url = "{}/todos".format(base_url)
 
     employee_data = requests.get(employee_url).json()
-    specific_employee = employee_data['name']
+    specific_employee = employee_data['username']
     todo_list = requests.get(todo_url, params={"userId": employee_id}).json()
 
     tasks = {
@@ -35,6 +35,7 @@ def export_to_json(tasks, filename):
     """function for exporting employee task info to csv file"""
     with open(filename, 'w', newline='') as jsonfile:
         json.dump(tasks, jsonfile, indent=4)
+
 
 if __name__ == "__main__":
     user_id = int(sys.argv[1])
